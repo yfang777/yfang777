@@ -52,7 +52,8 @@
                 <h2>Research</h2>
                 <p>
                   I'm interested in scalable robot learning methods. Currently, I am working under Yunzhu Li on a project to generate robotics data from real-world.
-                  Previously, I completed a learning-based eye-head control that could replicate and generate human gaze behaviors. To our best knowledge, this is the first paper to introduce the learning-based approach to eye-head control.
+                  <!-- <br>
+                  Previously, I completed a learning-based eye-head control that could replicate and generate human gaze behaviors. To our best knowledge, this is the first paper to introduce the learning-based approach to eye-head control. -->
                 </p>
               </td>
             </tr>
@@ -60,25 +61,13 @@
           <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
 
-            <tr onmouseout="gze_stop()" onmouseover="gze_start()" bgcolor="#ffffd0">
+            <tr bgcolor="#ffffd0">
               <td style="padding:16px;width:20%;vertical-align:middle">
                 <div class="one">
-                  <div class="two" id="gze_image" style="opacity:0; transition: opacity 0.3s;">
+                  <div class="two" id="gze_image" style="opacity:1; transition: opacity 0.3s;">
                     <img src="images/gaze.gif" style="width:100%; height:auto;">
                   </div>
                 </div>
-                <script type="text/javascript">
-                  function gze_start() {
-                    document.getElementById('gze_image').style.opacity = "1";
-                  }
-            
-                  function gze_stop() {
-                    document.getElementById('gze_image').style.opacity = "0";
-                  }
-            
-                  // Hide on page load
-                  window.onload = gze_stop;
-                </script>
               </td>
               <td style="padding:8px;width:80%;vertical-align:middle">
                 <a href="https://yfang777.github.io/yfang777/">
@@ -118,5 +107,30 @@
         </td>
       </tr>
     </table>
+    
+    <div class="toggle-container" onclick="toggleAnswer()">
+      <div id="arrow" class="arrow">▶</div>
+      <h2 style="display:inline">Why I changed to Robotics</h2>
+    </div>
+    
+    <div id="answer" class="answer">
+      <ul>
+        <li>Before robotics, I studied finance and operation research at SJTU and quant at CBS.</li>
+        <li>At the first year of Columbia, I interned at Prof.Hod's lab. Compared to predicting stocks, I found it more interesting to study, explore and experiment the cutting-edge model interfering with the real world. 
+        </li>
+        <li>Overall, this quant experience gives me a solid training in statistics.</li>
+      </ul>
+    </div>
+    
+    <script>
+      function toggleAnswer() {
+        const answer = document.getElementById("answer");
+        const arrow = document.getElementById("arrow");
+    
+        const isVisible = answer.style.display === "block";
+        answer.style.display = isVisible ? "none" : "block";
+        arrow.classList.toggle("down", !isVisible);
+      }
+    </script>
   </body>
 </html>
