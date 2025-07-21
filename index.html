@@ -51,8 +51,8 @@
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Research</h2>
                 <p>
-                  I'm interested in scalable robot learning methods. Currently, I am working under Yunzhu Li on a project to generate robotics data from real-world.
-                  <!-- <br>
+                  I'm interested in scalable robot learning methods. To the robotic hardware, I am especially interested in 
+                                    <!-- <br>
                   Previously, I completed a learning-based eye-head control that could replicate and generate human gaze behaviors. To our best knowledge, this is the first paper to introduce the learning-based approach to eye-head control. -->
                 </p>
               </td>
@@ -93,7 +93,34 @@
                 Realistic Gaze Transformer (RGT), a Transformer-VAE framework that learns full-head gaze dynamics, including head rotations and eyelid movements, from human motion capture data.    </p>
               </td>
             </tr>
+            
+            <tr>
+              <td colspan="2" style="padding:16px;width:100%;vertical-align:middle">
+                <h2>Projects</h2>
+              </td>
+            </tr>
+            
+            <tr>
+              <td style="padding:16px;width:20%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id="os_proj_image" style="opacity:1; transition: opacity 0.3s;">
+                    <img src="images/maxresdefault.jpg" style="width:100%; height:auto;">
+                  </div>
+                </div>
+              </td>
+              <td style="padding:8px;width:80%;vertical-align:middle">
+                <span class="papertitle">Linux Kernel v6.8</span>
+                <p>
+                  <b>Process Scheduler:</b> Designed and implemented a custom kernel scheduler that optimizes task completion in multi-agent environments. It uses weighted process prioritization and enhanced multi-core load balancing, outperforming the default CFS in both average and tail latency. Performance evaluation was conducted using <code>bpftrace</code> in virtualized environments.
+                </p>
+                <p>
+                  <b>Page Table Real-Time Inspection:</b> Built a Linux kernel tool for real-time virtual-to-physical address mapping inspection. Introduced a "shadow page table" mechanism and custom syscalls to enable one process to track another’s VMAs and PTEs. Leveraged eBPF and MMU notifiers for low-overhead memory change monitoring.
+                </p>
+              </td>
+            </tr>
+            
 
+            
           <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:0px">
