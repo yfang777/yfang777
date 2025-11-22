@@ -8,161 +8,335 @@
     <meta name="author" content="Yuan Fang">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
     
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
+
+    <style>
+      :root {
+        --grey: rgb(90, 90, 90);
+        --blue1: rgb(2,33,105);
+        --blue2: rgb(0,51,160);
+        --blue3: rgb(0,114,206);
+        --blue4: rgb(108,172,228);
+        --pink1: #F9564F;
+      }
+
+      html, p {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          font-size: 100%;
+          font: inherit;
+          vertical-align: baseline;
+          font-family: 'Source Sans Pro', sans-serif;
+          font-weight: 300;
+          letter-spacing: 0.5px;
+          color: var(--grey);
+      }
+      p {
+          margin: 0.2em;
+      }
+
+      ol, ul {
+          list-style: none;
+      }
+
+      ul {
+          list-style-position: inside;
+          list-style-type: none;
+      }
+
+      a {
+          text-decoration: none;
+          color: var(--blue3);
+      }
+      a:hover {
+          text-decoration: underline;
+      }
+
+      i {
+          font-style: italic;
+      }
+
+      h1 {
+          font-weight: 500;
+          color: var(--blue1);
+          font-size: 1.5em;
+          margin-top: 1em;
+          margin-bottom: 0.5em;
+      }
+      
+      h2 {
+          font-weight: 500;
+          color: var(--blue1);
+          font-size: 1.2em;
+      }
+
+      b {
+          font-weight: 500;
+      }
+
+      strong {
+          color: #fdc450;
+          font-weight: 700;
+      }
+
+      /**************************************************/
+
+      #header {
+          height: 2em;
+          line-height: 2em;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #ddd;
+          position: fixed;
+          top: 0;
+          /* FIXED: Added calc() */
+          left: calc(50% - 500px);
+          z-index: 9999;
+          width: 1000px;
+          background-color: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(8px);
+      }
+
+      #header a {
+          text-decoration: none;
+          color: var(--grey);
+          transition: color 0.3s ease;
+          font-weight: 400;
+      }
+
+      #header a:hover {
+          color: var(--blue1);
+      }
+
+      /**************************************************/
+
+      .container {
+        width: 1000px;
+        margin: 0 auto;
+        padding-top: 60px; /* Space for fixed header */
+      }
+
+      #profile {
+          padding: 40px 0;
+          border-bottom: 1px solid #ddd;
+          display: flex;
+          align-items: center;
+      }
+
+      #profile-pic {
+          margin-right: 40px;
+      }
+
+      #profile img {
+          width: 250px; /* Adjusted size for balance */
+          border-radius: 50%; /* Optional: Makes profile round */
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+      #profile-name {
+          font-size: 3em;
+          line-height: 1.1em;
+          font-weight: 400;
+          margin-bottom: 10px;
+          color: var(--blue1);
+      }
+
+      #profile-email {
+          margin-bottom: 20px;
+          color: var(--blue1);
+      }
+
+      .divider {
+          width: 100%;
+          border-bottom: 1px solid #ddd;
+          margin: 20px 0;
+      }
+
+      .papertitle {
+          color: var(--blue1);
+          font-weight: 600;
+          font-size: 1.1em;
+      }
+
+      /* New Styles for the Toggle Section */
+      .toggle-container {
+        cursor: pointer;
+        margin-top: 20px;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 5px;
+        display: inline-block;
+      }
+      
+      .arrow {
+        display: inline-block;
+        margin-right: 10px;
+        transition: transform 0.2s;
+        color: var(--blue1);
+      }
+
+      .arrow.down {
+        transform: rotate(90deg);
+      }
+
+      .answer {
+        display: none; /* Hidden by default */
+        margin-top: 10px;
+        padding-left: 0px;
+        border-left: 2px solid var(--blue1);
+      }
+      
+      /* Table styling */
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 20px;
+      }
+      
+      td {
+        vertical-align: middle;
+      }
+      
+      .proj-img {
+        width: 100%;
+        max-width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+    </style>
   </head>
 
   <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Yuan Fang
-                </p>
-                <p>
-        I'm a master student at Columbia University (Expected 2026). I am working on robotics under the surpervision of  <a href="https://yunzhuli.github.io/">Prof. Yunzhu Li</a>.
-        I am also fortunate to be advised by <a href="https://www.hodlipson.com/">Prof. Hod Lipson</a>.
-        Before entering Columbia, I earned B.S from <a href = "https://www.sjtu.edu.cn/">Shanghai Jiao Tong University</a>. 
-        <br>
-        <br>
-        Email: yf2716 at columbia dot com.
-        </p>
+    <div class="container">
+      
+      <header id="header" style="display:flex; justify-content: space-around;">
+          <a href="#profile">Home</a>
+          <a href="#updates">Updates</a>
+          <a href="#research">Research</a>
+      </header>
 
-                <!-- <p style="text-align:center">
-                  <a href="mailto:yf2716@columbia.com">Email</a> &nbsp;/&nbsp;
-                </p> -->
-              </td>
-              <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/YuanFang.jpg">
-                  <div style="transform: scale(0.7); transform-origin: top left; display: inline-block;">
-                    <img style="width:100%; max-width:100%; object-fit: cover; border-radius: 10px;" 
-                         alt="profile photo" 
-                         src="images/YuanFang.jpg" 
-                         class="hoverZoomLink">
-                  </div>
-                </a>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:16px;width:100%;vertical-align:middle">
-                <h2>Research</h2>
-                <p>
-                  <!-- I'm interested in scalable learning methods for robots. For robot hardware, I am especially interested in life-like humanoid robots. -->
-                                    <!-- <br>
-                  Previously, I completed a learning-based eye-head control that could replicate and generate human gaze behaviors. To our best knowledge, this is the first paper to introduce the learning-based approach to eye-head control. -->
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <div id="profile">
+          <div id="profile-pic">
+              <img src="assets/profile/Profile_2025_11.jpg" alt="Yuan Fang" />
+          </div>
+          <div id="profile-intro">
+              <div id="profile-name">Yuan Fang</div>
+              <div id="profile-email">yf2716 at columbia dot edu</div>
+              <p>
+                  I'm a master student at Columbia University. I am currently supervised by <a href="https://yunzhuli.github.io/">Prof. Yunzhu Li</a>.
+              </p>
+              <div style="margin-top:15px;">
+                <a href="assets/cv/CV.pdf">CV</a> / <a href="https://github.com/yfang777">Github</a>
+              </div>
+          </div>
+      </div>
 
+      <div class="section" id="updates">
+          <h1>Updates</h1>
+          <ul>
+              <li> <b>June 2025</b> Started my research intership at <a href="https://yunzhuli.github.io/"> RoboPIL </a>.
+              <li> <b>May 2025</b> Submitted Realistic Gaze Paper to CoRL 2026.
+              <li> <b>Dec 2024</b> Started my first robotics research internship at <a href="https://www.me.columbia.edu/faculty/hod-lipson"> Creative Machine Labs</a>.
+              <li> <b>June 2024</b> Graduated from <a href="https://www.acem.sjtu.edu.cn/en/"> Shanghai Jiao Tong University</a> </li>
+          </ul>
+      </div>
 
-            <tr bgcolor="#ffffd0">
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id="gze_image" style="opacity:1; transition: opacity 0.3s;">
-                    <img src="images/gaze.gif" style="width:100%; height:auto;">
-                  </div>
-                </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://yfang777.github.io/yfang777/">
-                  <span class="papertitle">Eye, Robot: Learning Realistic Robot Gaze From Human Motion Data
-                  </span>
-                </a>
-                <br>
-                <em>Under Review</em>, Neurips 2025
-                <br>
-                Yuhang Hu,
-                <strong>Yuan Fang</strong>,
-                Junlin Lyu,
-                Xiaoying Shen,
-                Lechen Zhang,
-                Jiong Lin,
-                Judah A Goldfeder,
-                Steven Tian,
-                Hod Lipson
-                <br>
-                <br>
-                <p></p>
-                <p>
-                Realistic Gaze Transformer (RGT), a Transformer-VAE framework that learns full-head gaze dynamics, including head rotations and eyelid movements, from human motion capture data.    </p>
-              </td>
-            </tr>
-            
+      <div class="divider"></div>
+
+      <div id="research">
+         <h1>Research</h1>
+         
+         <table>
             <tr>
-              <td colspan="2" style="padding:16px;width:100%;vertical-align:middle">
-                <h2>Projects</h2>
-              </td>
+                <td style="width:25%; padding-right:20px;">
+                    <video width="100%" autoplay loop muted playsinline class="proj-img">
+                        <source src="assets/images/gaze.mp4" type="video/mp4">
+                    </video>
+                </td>
+                <td style="width:75%;">
+                    <a href="https://www.youtube.com/watch?v=bZZSLsCq9u8" class="papertitle">
+                        Eye, Robot: Learning Realistic Robot Gaze From Human Motion Data
+                    </a>
+                    <p>
+                      Yuhang Hu, <strong>Yuan Fang</strong>, Junlin Lyu, Xiaoying Shen, Lechen Zhang, Jiong Lin, Judah A Goldfeder, Steven Tian, Hod Lipson
+                    </p>
+                    <p><em>We propose a method to generate realistic robot gaze behaviors learned from human data.</em></p>
+                </td>
             </tr>
-            
+         </table>
+
+         <h1>Projects</h1>
+         
+         <table>
             <tr>
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id="os_proj_image" style="opacity:1; transition: opacity 0.3s;">
-                    <img src="images/linux.jpg" style="width:100%; height:auto;">
-                  </div>
-                </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <span class="papertitle">Linux Kernel v6.8</span>
-                <p>
-                  <b>Process Scheduler:</b> Designed and implemented a custom kernel scheduler that optimizes task completion in multi-agent environments. It uses weighted process prioritization and enhanced multi-core load balancing, outperforming the default CFS in both average and tail latency. Performance evaluation was conducted using <code>bpftrace</code> in virtualized environments.
-                </p>
-                <p>
-                  <b>Page Table Real-Time Inspection:</b> Built a Linux kernel tool for real-time virtual-to-physical address mapping inspection. Introduced a "shadow page table" mechanism and custom syscalls to enable one process to track another’s VMAs and PTEs. Leveraged eBPF and MMU notifiers for low-overhead memory change monitoring.
-                </p>
-              </td>
-            </tr>
-            
-            <tr>
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <video autoplay loop muted playsinline style="width:100%; height:auto; border-radius: 8px;">
-                  <source src="images/fluids.mp4" type="video/mp4">
+              <td style="width:25%; padding-right:20px;">
+                <video autoplay loop muted playsinline class="proj-img">
+                  <source src="assets/images/rod_simulation.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
               </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <span class="papertitle">Physics-Based Simulation</span>
-                <p><b>Soft-Cloth Simulation:</b> Simulated deformable objects using C++ and mass-spring models.</p>
-                <p><b>Stable Fluid Simulation:</b> Developed tools for fluid motion using Navier–Stokes solvers and MAC grid stabilization.</p>
+              <td style="width:75%;">
+                <span class="papertitle">Differentiable and Stable Simulation of Soft Ro</span>
+                <p><b>Developed a stable solver for elastic rods within the Position-Based Dynamics (PBD) framework in Newton.</p>
+                <p><b>Added differentiability to framework that enable automatical parameter tuning based on user-provided videos.</p>
               </td>
             </tr>
 
 
-
-            
-          <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  Feel free to steal this website's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>. <strong>Do not</strong> scrape the HTML from this page itself, as it includes analytics tags that you do not want on your own website &mdash; use the github code instead. Also, consider using <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of this page.
+              <td style="width:25%; padding-right:20px;">
+                <video autoplay loop muted playsinline class="proj-img">
+                  <source src="assets/images/fluids.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </td>
+              <td style="width:75%;">
+                <span class="papertitle">Stable Fluids</span>
+                <p><b>Implemented grid-based fluids simulation in C++ and improved numerical stability by semi-grid update.</p>
+                <p><b>Added user-friendly interface to diffuse any images like fluids and to allow user controlled by mouse.</p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width:25%; padding-right:20px;">
+                <img src="assets/images/linux.jpg" class="proj-img" alt="Linux Kernel">
+              </td>
+              <td style="width:75%;">
+                <span class="papertitle">Linux Kernel v6.8</span>
+                <p>
+                  <b>Process Scheduler:</b> Designed and implemented a custom kernel scheduler that optimizes task completion in multi-agent environments.
+                </p>
+                <p>
+                  <b>Page Table Real-Time Inspection:</b> Built a Linux kernel tool for real-time virtual-to-physical address mapping inspection leveraging eBPF.
                 </p>
               </td>
             </tr>
-          </tbody></table> -->
-        </td>
-      </tr>
-    </table>
-    
-    <div class="toggle-container" onclick="toggleAnswer()">
-      <div id="arrow" class="arrow">▶</div>
-      <h2 style="display:inline">Why I changed to Robotics</h2>
-    </div>
-    
-    <div id="answer" class="answer">
-      <ul>
-        <li>Before robotics, I studied finance and operation research at SJTU and quant at CBS.</li>
-        <li>At the first year of Columbia, I interned at Prof.Hod's lab. Compared to predicting stocks, I found it more interesting to study, explore and experiment the cutting-edge model interfering with the real world. 
-        </li>
-        <li>Overall, this quant experience gives me a solid training in statistics and attention-to-details.</li>
-      </ul>
+
+         </table>
+      </div>
+
+      <div class="divider"></div>
+      
+      <div class="toggle-container" onclick="toggleAnswer()">
+        <span id="arrow" class="arrow">▶</span>
+        <h2 style="display:inline; margin:0; font-size:1em;">Why I changed to Robotics</h2>
+      </div>
+      
+      <div id="answer" class="answer">
+        <ul>
+          <li>Before robotics, I studied finance and operation research at SJTU and quant at CBS.</li>
+          <li>At the first year of Columbia, I interned at Prof. Hod's lab. Compared to predicting stocks, I found it more interesting to study, explore and experiment the cutting-edge model interfering with the real world.</li>
+          <li>Overall, this quant experience gives me a solid training in statistics and attention-to-details.</li>
+        </ul>
+      </div>
+
+      <div style="text-align:right; font-size:small; margin-top:40px; margin-bottom:20px; color:#999;">
+          Website template from <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron</a>.
+      </div>
+
     </div>
     
     <script>
@@ -170,9 +344,14 @@
         const answer = document.getElementById("answer");
         const arrow = document.getElementById("arrow");
     
-        const isVisible = answer.style.display === "block";
-        answer.style.display = isVisible ? "none" : "block";
-        arrow.classList.toggle("down", !isVisible);
+        // Toggle display logic
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            arrow.classList.remove("down");
+        } else {
+            answer.style.display = "block";
+            arrow.classList.add("down");
+        }
       }
     </script>
   </body>
