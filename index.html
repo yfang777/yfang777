@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
- 
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -143,6 +143,15 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
+    #profile img {
+      width: 250px;
+      object-fit: cover;
+      /* Prevents the image from stretching/squishing */
+      border-radius: 8px;
+      /* Optional: Gives the square slightly softened corners. Change to 0 for sharp corners. */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
     #profile-name {
       font-size: 3em;
       line-height: 1.1em;
@@ -234,8 +243,15 @@
         <div id="profile-name">Yuan Fang</div>
         <div id="profile-email">yf2716 at columbia dot edu</div>
         <p>
-          I'm an incoming Phd student at Columbia University, advised by 
-          <a href="https://yunzhuli.github.io/">Prof. Yunzhu Li</a> and <a href="https://www.cs.columbia.edu/~cxz/">Prof. Changxi Zheng</a> .
+          I am an incoming Ph.D. student at Columbia University. </p>
+        <p>
+          I am advised by
+          <a href="https://yunzhuli.github.io/">Prof. Yunzhu Li</a> and <a
+            href="https://www.cs.columbia.edu/~cxz/">Prof.
+            Changxi Zheng</a> .
+        </p>
+        <p>
+          I work on robotics.
         </p>
         <div style="margin-top:15px;">
           <!-- <a href="assets/cv/CV.pdf">CV</a> -->
@@ -317,8 +333,8 @@
             <span class="papertitle">Stable Fluids</span>
             <p><b>Implemented grid-based fluids simulation in C++ and improved numerical stability by semi-grid update.
             </p>
-            <p><b>Added user-friendly interface to diffuse any images like fluids and to allow user controlled by mouse.
-            </p>
+            <!-- <p><b>Added user-friendly interface to diffuse any images like fluids and to allow user controlled by mouse.
+            </p> -->
           </td>
         </tr>
 
