@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Yuan Fang — Layout options</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 24px; font: 16px/1.5 Helvetica, Arial, sans-serif; color: #333; background: #fefefe; }
+    main { max-width: 1280px; margin: 0 auto; }
+    h1 { margin: 0 0 8px; font-size: 24px; font-weight: normal; }
+    p { margin: 0 0 20px; }
+    .options { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    button { padding: 10px 14px; font: inherit; text-align: left; color: #333; background: #fff; border: 1px solid #bbb; border-radius: 6px; cursor: pointer; }
+    button[aria-pressed="true"] { color: #fff; background: #222; border-color: #222; }
+    button:focus-visible { outline: 3px solid #0645ad; outline-offset: 3px; }
+    button span { display: block; font-size: 14px; }
+    #dimensions { margin-bottom: 16px; color: #555; }
+    iframe { display: block; width: 100%; height: 560px; border: 1px solid #ddd; background: #fefefe; }
+    a { color: #0645ad; }
+    @media (max-width: 600px) {
+      body { margin: 16px; }
+      .options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      button { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Five text and photo layouts</h1>
+    <p>Compare smaller photos with more room for the introduction. Option 1 is the current website layout. <a href="index.html">Open the website</a></p>
+    <div class="options" role="group" aria-label="Photo and text layout">
+      <button type="button" data-photo-width="240" aria-pressed="true">1. Larger portrait — current<span>Photo up to 240px</span></button>
+      <button type="button" data-photo-width="220" aria-pressed="false">2. Balanced<span>Photo up to 220px</span></button>
+      <button type="button" data-photo-width="200" aria-pressed="false">3. More text<span>Photo up to 200px</span></button>
+      <button type="button" data-photo-width="180" aria-pressed="false">4. Compact portrait<span>Photo up to 180px</span></button>
+      <button type="button" data-photo-width="160" aria-pressed="false">5. Most text<span>Photo up to 160px</span></button>
+    </div>
+    <p id="dimensions" aria-live="polite">Loading the website preview…</p>
+    <iframe id="preview" src="index.html" title="Selected website layout preview"></iframe>
+  </main>
+  <script>
+    const preview = document.getElementById('preview');
+    const dimensions = document.getElementById('dimensions');
+    const buttons = [...document.querySelectorAll('[data-photo-width]')];
+    let selectedWidth = 240;
+    let observer;
+
+    function updateDimensions() {
+      const doc = preview.contentDocument;
+      const profile = doc && doc.getElementById('profile');
+      if (!profile) return;
+      const textWidth = Math.round(doc.getElementById('profile-intro').getBoundingClientRect().width);
+      const photoWidth = Math.round(profile.querySelector('img').getBoundingClientRect().width);
+      const style = preview.contentWindow.getComputedStyle(doc.body);
+      const height = doc.body.getBoundingClientRect().height + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+      preview.style.height = `${Math.max(360, Math.ceil(height) + 2)}px`;
+      dimensions.textContent = `Current preview: text ${textWidth}px · photo ${photoWidth}px. Photos scale down on smaller screens.`;
+    }
+
+    function applyOption(width) {
+      selectedWidth = width;
+      buttons.forEach(button => {
+        button.setAttribute('aria-pressed', String(Number(button.dataset.photoWidth) === width));
+      });
+      const doc = preview.contentDocument;
+      if (!doc || !doc.getElementById('profile')) return;
+      doc.documentElement.style.setProperty('--profile-photo-width', `${width}px`);
+      updateDimensions();
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => applyOption(Number(button.dataset.photoWidth)));
+    });
+
+    preview.addEventListener('load', () => {
+      applyOption(selectedWidth);
+      if (observer) observer.disconnect();
+      observer = new ResizeObserver(updateDimensions);
+      observer.observe(preview.contentDocument.body);
+    });
+
+    window.addEventListener('resize', updateDimensions);
+  </script>
+</body>
+</html>

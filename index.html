@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Yuan Fang">
-  <title>Yuan Fang</title>
+  <title>□ ○</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <style>
+    :root {
+      --profile-photo-width: 240px;
+    }
+
     body {
-      width: 66.6667%;
+      width: min(1100px, calc(100% - 80px));
       margin: 48px auto;
       font: 12pt/1.5 Helvetica, Arial, sans-serif;
       color: #444;
@@ -17,12 +22,12 @@
     #profile {
       display: flex;
       align-items: flex-start;
-      gap: 5%;
+      gap: 40px;
     }
 
     #profile img {
       display: block;
-      width: 30%;
+      width: var(--profile-photo-width);
       max-width: 100%;
       height: auto;
       flex-shrink: 0;
@@ -31,6 +36,15 @@
     #profile-intro {
       flex: 1;
       min-width: 0;
+    }
+
+    .advisors {
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    .advisor {
+      white-space: nowrap;
     }
 
     h1 {
@@ -68,7 +82,7 @@
       }
 
       #profile img {
-        width: 240px;
+        width: min(180px, var(--profile-photo-width));
       }
     }
   </style>
@@ -76,8 +90,8 @@
 <body>
   <main id="profile">
     <div id="profile-intro">
-      <h1>Yuan Fang</h1>
-      <p>I am a PhD student in Computer Science at Columbia University advised by <a href="https://yunzhuli.github.io/">Yunzhu Li</a>.</p>
+      <h1>Yuan Fang <span lang="zh">方圆</span></h1>
+      <p>I am a first-year PhD student in Computer Science at Columbia University advised by <span class="advisors"><span class="advisor"><a href="https://yunzhuli.github.io/">Yunzhu Li</a> (Robotics)</span> and <span class="advisor"><a href="https://www.cs.columbia.edu/~cxz/">Changxi Zheng</a> (Simulation)</span></span>.</p>
       <p>Currently, I work on robotics, with an emphasis on sim-to-real. Before that, I completed my undergraduate studies at Shanghai Jiao Tong University.</p>
       <p>Email: yf2716 at columbia dot edu</p>
     </div>
