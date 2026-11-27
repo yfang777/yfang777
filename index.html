@@ -9,67 +9,178 @@
   <style>
     body {
       margin: 0;
-      font: 12pt/1.6 Helvetica, Arial, sans-serif;
-      color: #444;
-      background: #fefefe;
+      font: 16px/1.5 Helvetica, Arial, sans-serif;
+      color: #000;
+      background: #fff;
     }
 
-    #profile {
-      max-width: 600px;
+    main {
+      max-width: 800px;
       margin: 0 auto;
-      padding: clamp(40px, 10vh, 100px) 24px 64px;
-      text-align: center;
     }
 
-    #profile img {
+    #intro {
+      display: flex;
+      align-items: center;
+    }
+
+    #intro-text {
+      font-size: 17px;
+      width: 63%;
+      padding: 2.5%;
+      box-sizing: border-box;
+    }
+
+    #intro-photo {
+      width: 37%;
+      padding: 3%;
+      box-sizing: border-box;
+    }
+
+    #intro-photo img {
       display: block;
-      width: 168px;
-      height: 168px;
-      margin: 0 auto 28px;
-      border-radius: 50%;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
+      border-radius: 50%;
     }
 
-    h1 {
-      margin: 0 0 0.8em;
-      font-size: 36px;
+    .name {
+      margin: 1em 0;
+      text-align: center;
+      font-size: 28px;
       font-weight: normal;
-      line-height: 1.2;
-      color: #111;
     }
 
     p {
-      margin: 0 0 1em;
+      margin: 1em 0;
+    }
+
+    .links {
+      text-align: center;
     }
 
     .advisor {
       white-space: nowrap;
     }
 
-    .contact {
-      margin-top: 1.6em;
-      font-size: 0.95em;
-      color: #888;
-    }
-
     a {
-      color: #0645ad;
+      color: #1772d0;
       text-decoration: none;
     }
 
+    a:focus,
     a:hover {
-      color: #06e;
-      text-decoration: underline;
+      color: #f09228;
+    }
+
+    #publications {
+      padding: 0 20px 40px;
+    }
+
+    .heading {
+      margin: 20px 0 0;
+      font-size: 28px;
+      font-weight: normal;
+    }
+
+    .pub {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 20px 0;
+    }
+
+    .pub-thumb {
+      width: 25%;
+      flex-shrink: 0;
+    }
+
+    .pub-thumb video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .pub-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pub-title {
+      font-weight: 700;
+    }
+
+    .pub-text p {
+      margin: 0.6em 0 0;
+    }
+
+    @media (max-width: 600px) {
+      .pub {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .pub-thumb {
+        width: 100%;
+      }
+
+      #intro {
+        flex-direction: column-reverse;
+      }
+
+      #intro-text {
+        width: 100%;
+        padding: 0 20px;
+      }
+
+      #intro-photo {
+        width: 60%;
+        padding: 32px 0 0;
+      }
     }
   </style>
 </head>
 <body>
-  <main id="profile">
-    <img src="assets/profile/DSC05324.jpg" alt="Yuan Fang" width="3102" height="3102">
-    <h1>Yuan Fang <span lang="zh">方圆</span></h1>
-    <p>I am a first-year Ph.D. student at Columbia, as part of the <a href="https://cail.columbia.edu/">Columbia Core AI Lab (CAIL)</a>, advised by <a class="advisor" href="https://yunzhuli.github.io/">Yunzhu Li</a> and <a class="advisor" href="https://www.cs.columbia.edu/~cxz/">Changxi Zheng</a>. I work on robotics.</p>
-    <p>Before that, I completed my undergraduate studies at Shanghai Jiao Tong University.</p>
-    <p class="contact">Email: yf2716 at columbia dot edu</p>
+  <main>
+    <section id="intro">
+      <div id="intro-text">
+        <h1 class="name">Yuan Fang <span lang="zh">方圆</span></h1>
+        <p>I am a CS Ph.D. student at <a href="https://www.columbia.edu/">Columbia University</a>, advised by <a class="advisor" href="https://yunzhuli.github.io/">Yunzhu Li</a> and <a class="advisor" href="https://www.cs.columbia.edu/~cxz/">Changxi Zheng</a>. Before that, I completed my undergraduate studies at <a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a>.</p>
+        <p>I want to build human-like robots that are capable of performing complex fine manipulation tasks.</p>
+        <p class="links">yf2716 at columbia dot edu &nbsp;/&nbsp; <a href="https://github.com/yfang777">GitHub</a></p>
+      </div>
+      <div id="intro-photo">
+        <img src="assets/profile/DSC05324.jpg" alt="Yuan Fang" width="3102" height="3102">
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2 class="heading">Publications</h2>
+
+      <div class="pub">
+        <div class="pub-thumb">
+          <a href="https://yfang777.github.io/UniKey_Blog/"><video src="assets/images/unikey_teaser.mp4" poster="assets/images/unikey_teaser.jpg" width="640" height="440" autoplay muted loop playsinline preload="metadata" aria-label="UniKey teaser video"></video></a>
+        </div>
+        <div class="pub-text">
+          <a href="https://yfang777.github.io/UniKey_Blog/" class="pub-title">UniKey: Keypoints as a Unified Interface for Scalable Data Generation and Policy Learning</a>
+          <br>
+          <strong>Yuan Fang</strong>,
+          <a href="https://www.yixuanwang.me/">Yixuan Wang</a>,
+          <a href="https://penghaohsu.github.io/">Peng-Hao Hsu</a>,
+          <a href="https://www.linkedin.com/in/richard-cheng-83838088">Richard Cheng</a>,
+          <a href="https://www.cs.columbia.edu/~cxz/">Changxi Zheng</a>,
+          <a href="https://www.thekatherineliu.com/">Katherine Liu</a>,
+          <a href="https://yunzhuli.github.io/">Yunzhu Li</a>
+          <br>
+          <a href="https://yfang777.github.io/UniKey_Blog/">project page</a> /
+          <a href="https://yfang777.github.io/UniKey_Blog/UniKey.pdf">paper</a>
+          <p>The same keypoint programs generate expert demonstrations, monitor policy execution, and plan corrections from failure states.</p>
+        </div>
+      </div>
+    </section>
   </main>
 </body>
 </html>
