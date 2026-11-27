@@ -23,20 +23,18 @@
 
     #profile img {
       display: block;
-      width: 30%;
+      width: 19.2%;
       max-width: 100%;
       height: auto;
       flex-shrink: 0;
+      box-sizing: border-box;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     #profile-intro {
       flex: 1;
       min-width: 0;
-    }
-
-    .advisors {
-      display: inline-block;
-      max-width: 100%;
     }
 
     .advisor {
@@ -48,6 +46,13 @@
       font-size: 40px;
       font-weight: normal;
       line-height: 1.5;
+      color: #111;
+    }
+
+    h2 {
+      margin: 48px 0 0;
+      font-size: 28px;
+      font-weight: normal;
       color: #111;
     }
 
@@ -65,33 +70,127 @@
       text-decoration: underline;
     }
 
+    .pub {
+      display: flex;
+      align-items: center;
+      gap: 5%;
+      padding: 20px 0;
+    }
+
+    .pub-thumb {
+      width: 19.2%;
+      flex-shrink: 0;
+    }
+
+    .pub-thumb video {
+      display: block;
+      width: 100%;
+      height: auto;
+      box-sizing: border-box;
+    }
+
+    .pub-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pub-title {
+      font-weight: bold;
+      color: #000;
+    }
+
+    .pub-links {
+      color: #0645ad;
+      font-weight: bold;
+    }
+
+    .pub-links a {
+      font-weight: normal;
+    }
+
     @media (max-width: 760px) {
       body {
         width: auto;
         margin: 24px 20px;
       }
 
-      #profile {
+      #profile,
+      .pub {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
       }
 
       #profile img {
-        width: 240px;
+        width: 154px;
+      }
+
+      .pub-thumb {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <main id="profile">
-    <div id="profile-intro">
-      <h1>Yuan Fang <span lang="zh">方圆</span></h1>
-      <p>I am a first-year Ph.D. student at Columbia, as part of the <a href="https://cail.columbia.edu/">Columbia Core AI Lab (CAIL)</a>, advised by <span class="advisors"><a class="advisor" href="https://yunzhuli.github.io/">Yunzhu Li</a> and <a class="advisor" href="https://www.cs.columbia.edu/~cxz/">Changxi Zheng</a></span>. I work on robotics.</p>
-      <p>Before that, I completed my undergraduate studies at Shanghai Jiao Tong University.</p>
-      <p>Email: yf2716 at columbia dot edu</p>
-    </div>
-    <img src="assets/profile/IMG_2568.jpg" alt="Yuan Fang" width="1477" height="2000">
+  <main>
+    <section id="profile">
+      <img src="assets/profile/DSC05324.jpg" alt="Yuan Fang" width="3102" height="3102">
+      <div id="profile-intro">
+        <h1>Yuan Fang <span lang="zh">方圆</span></h1>
+        <p>I am a CS Ph.D. student at <a href="https://www.columbia.edu/">Columbia University</a>, advised by <a class="advisor" href="https://yunzhuli.github.io/">Yunzhu Li</a> and <a class="advisor" href="https://www.cs.columbia.edu/~cxz/">Changxi Zheng</a>. I want to build human-like robots that are capable of performing complex fine manipulation tasks.</p>
+        <p>Before that, I completed my undergraduate studies at <a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a>.</p>
+        <p>Email: yf2716 at columbia dot edu &nbsp;/&nbsp; <a href="https://github.com/yfang777">GitHub</a></p>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <div class="pub">
+        <div class="pub-thumb">
+          <a href="https://yfang777.github.io/UniKey_Blog/"><video src="assets/images/unikey_teaser.mp4" poster="assets/images/unikey_teaser.jpg" width="640" height="440" autoplay muted loop playsinline preload="metadata" aria-label="UniKey teaser video"></video></a>
+        </div>
+        <div class="pub-text">
+          <a href="https://yfang.info/"><strong>Yuan Fang</strong></a>,
+          <a href="https://www.yixuanwang.me/">Yixuan Wang</a>,
+          <a href="https://penghaohsu.github.io/">Peng-Hao Hsu</a>,
+          <a href="https://www.linkedin.com/in/richard-cheng-83838088">Richard Cheng</a>,
+          <a href="https://www.cs.columbia.edu/~cxz/">Changxi Zheng</a>,
+          <a href="https://www.thekatherineliu.com/">Katherine Liu</a>, and
+          <a href="https://yunzhuli.github.io/">Yunzhu Li</a>
+          <br>
+          <span class="pub-title">UniKey: Keypoints as a Unified Interface for Scalable Data Generation and Policy Learning</span>
+          <br>
+          Keypoints as a unified interface for agents to generate expert and corrective data. The resulting policy runs for over 30 minutes with a 100% success rate.
+          <br>
+          <a href="https://yfang777.github.io/UniKey_Blog/"><small>[Project]</small></a>
+          <a href="https://yfang777.github.io/UniKey_Blog/UniKey.pdf"><small>[Paper]</small></a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="pub-thumb">
+          <a href="https://www.youtube.com/watch?v=bZZSLsCq9u8"><video src="assets/images/gaze.mp4" poster="assets/images/gaze.jpg" width="800" height="600" autoplay muted loop playsinline preload="metadata" aria-label="Eye, Robot gaze video"></video></a>
+        </div>
+        <div class="pub-text">
+          <a href="https://yuhang-hu.com/">Yuhang Hu</a>,
+          <a href="#">Junlin Lyu</a>,
+          <a href="https://yfang.info/"><strong>Yuan Fang</strong></a>,
+          <a href="#">Xiaoying Shen</a>,
+          <a href="https://www.lechen-zhang.com/">Lechen Zhang</a>,
+          <a href="https://jl6017.github.io/">Jiong Lin</a>,
+          <a href="https://judahgoldfeder.com/">Judah Goldfeder</a>,
+          <a href="#">Steven Tian</a>, and
+          <a href="https://www.hodlipson.com/">Hod Lipson</a>
+          <br>
+          <span class="pub-title">Eye, Robot: Learning Expressive Gaze Dynamics From Human Motion Data</span>
+          <br>
+          A Transformer-VAE that learns expressive, full-head gaze dynamics for a robotic face from human motion data.
+          <br>
+          <span class="pub-links">CoRL 2026 &nbsp; <a href="https://www.youtube.com/watch?v=bZZSLsCq9u8">[Video]</a></span>
+        </div>
+      </div>
+    </section>
   </main>
 </body>
 </html>
