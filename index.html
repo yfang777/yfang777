@@ -8,51 +8,48 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <style>
     body {
-      width: 66.6667%;
-      margin: 48px auto;
-      font: 12pt/1.5 Helvetica, Arial, sans-serif;
+      margin: 0;
+      font: 12pt/1.6 Helvetica, Arial, sans-serif;
       color: #444;
       background: #fefefe;
     }
 
     #profile {
-      display: flex;
-      align-items: flex-start;
-      gap: 5%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: clamp(40px, 10vh, 100px) 24px 64px;
+      text-align: center;
     }
 
     #profile img {
       display: block;
-      width: 30%;
-      max-width: 100%;
-      height: auto;
-      flex-shrink: 0;
+      width: 168px;
+      height: 168px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
-    #profile-intro {
-      flex: 1;
-      min-width: 0;
+    h1 {
+      margin: 0 0 0.8em;
+      font-size: 36px;
+      font-weight: normal;
+      line-height: 1.2;
+      color: #111;
     }
 
-    .advisors {
-      display: inline-block;
-      max-width: 100%;
+    p {
+      margin: 0 0 1em;
     }
 
     .advisor {
       white-space: nowrap;
     }
 
-    h1 {
-      margin: 0 0 0.5em;
-      font-size: 40px;
-      font-weight: normal;
-      line-height: 1.5;
-      color: #111;
-    }
-
-    p {
-      margin: 1em 0;
+    .contact {
+      margin-top: 1.6em;
+      font-size: 0.95em;
+      color: #888;
     }
 
     a {
@@ -64,34 +61,15 @@
       color: #06e;
       text-decoration: underline;
     }
-
-    @media (max-width: 760px) {
-      body {
-        width: auto;
-        margin: 24px 20px;
-      }
-
-      #profile {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-      }
-
-      #profile img {
-        width: 240px;
-      }
-    }
   </style>
 </head>
 <body>
   <main id="profile">
-    <div id="profile-intro">
-      <h1>Yuan Fang <span lang="zh">方圆</span></h1>
-      <p>I am a first-year Ph.D. student at Columbia, as part of the <a href="https://cail.columbia.edu/">Columbia Core AI Lab (CAIL)</a>, advised by <span class="advisors"><a class="advisor" href="https://yunzhuli.github.io/">Yunzhu Li</a> and <a class="advisor" href="https://www.cs.columbia.edu/~cxz/">Changxi Zheng</a></span>. I work on robotics.</p>
-      <p>Before that, I completed my undergraduate studies at Shanghai Jiao Tong University.</p>
-      <p>Email: yf2716 at columbia dot edu</p>
-    </div>
-    <img src="assets/profile/IMG_2568.jpg" alt="Yuan Fang" width="1477" height="2000">
+    <img src="assets/profile/DSC05324.jpg" alt="Yuan Fang" width="3102" height="3102">
+    <h1>Yuan Fang <span lang="zh">方圆</span></h1>
+    <p>I am a first-year Ph.D. student at Columbia, as part of the <a href="https://cail.columbia.edu/">Columbia Core AI Lab (CAIL)</a>, advised by <a class="advisor" href="https://yunzhuli.github.io/">Yunzhu Li</a> and <a class="advisor" href="https://www.cs.columbia.edu/~cxz/">Changxi Zheng</a>. I work on robotics.</p>
+    <p>Before that, I completed my undergraduate studies at Shanghai Jiao Tong University.</p>
+    <p class="contact">Email: yf2716 at columbia dot edu</p>
   </main>
 </body>
 </html>
