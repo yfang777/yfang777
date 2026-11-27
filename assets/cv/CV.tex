@@ -1,0 +1,86 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.55in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{charter}
+
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\newcommand{\cvleading}{14pt}
+\newcommand{\cventrygap}{\par\addvspace{5pt}}
+\newcommand{\cvtitlefont}{\fontsize{12}{\cvleading}\selectfont}
+\definecolor{columbiablue}{HTML}{B9D9EB}
+\definecolor{columbiaprimary}{HTML}{1D4F91}
+
+% Dark primary blue makes headings legible; rules use official Columbia Blue.
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{8pt}%
+  {\fontsize{13}{16}\selectfont\scshape\color{columbiaprimary}#1}\par\vspace{2pt}%
+  {\color{columbiablue}\hrule height 1pt}\vspace{6pt}%
+}
+% Rows within an entry share one baseline spacing.
+\newcommand{\cvrow}[2]{#1\hfill\mbox{#2}\par}
+\newcommand{\cvtitle}[2]{{\cvtitlefont\cvrow{\textbf{#1}}{#2}}}
+\newcommand{\cvbullet}[1]{%
+  {\hangindent=1.5em\hangafter=1\makebox[1.5em][c]{\textbullet}#1\par}%
+}
+\newcommand{\publicationEntry}[3]{%
+  {\raggedright
+    {\cvtitlefont\bfseries #1\par}
+    #2\par
+    #3\par}%
+}
+
+\begin{document}
+\begin{center}
+  {\fontsize{22}{26}\selectfont Yuan Fang} \\[6pt]
+  \href{mailto:yf2716@columbia.edu}{yf2716@columbia.edu}
+  \enspace|\enspace
+  \href{https://yfang.info}{yfang.info}
+\end{center}
+
+\fontsize{11}{\cvleading}\selectfont
+\cvsection{Education}
+\cvtitle{Columbia University}{08/2024--Present}
+\cvrow{Ph.D. in Computer Science (2026--Present)}{Advisors: Yunzhu Li, Changxi Zheng}
+\cvrow{M.S. (2024--2026)}{Advisor: Yunzhu Li}
+\cventrygap
+\cvtitle{Shanghai Jiao Tong University}{09/2020 -- 06/2024}
+B.S. in Statistics and Economics\par
+\cvbullet{Visiting student at the University of California, Berkeley from 01/2023 to 05/2023.}
+
+\cvsection{Work Experience}
+\cvtitle{TikTok}{06/2023 -- 09/2023}
+Engineering Intern, Topic: Multi-modal Understanding\par
+
+\cvsection{Publications}
+\publicationEntry
+  {UniKey: Keypoints as a Unified Interface for Scalable Data Generation and Policy Learning}
+  {\textbf{Yuan Fang}, Yixuan Wang, Peng-Hao Hsu, Richard Cheng, Changxi Zheng, Katherine Liu, and Yunzhu Li}
+  {In Submission, 2026}
+\cventrygap
+\publicationEntry
+  {Eye, Robot: Learning Expressive Gaze Dynamics From Human Motion Data}
+  {Yuhang Hu, Junlin Lyu, \textbf{Yuan Fang}, Xiaoying Shen, Lechen Zhang, Jiong Lin, Judah Goldfeder, Steven Tian, and Hod Lipson}
+  {Conference on Robot Learning (CoRL), 2026}
+
+\cvsection{Research Experience}
+\cvtitle{RoboPIL Lab, Columbia University}{06/2025 -- Present}
+\cvrow{Research Assistant}{Advisor: Yunzhu Li}
+\cvbullet{Research focus: robotic manipulation, sim2real, imitation learning.}
+\cventrygap
+\cvtitle{Creative Machine Lab, Columbia University}{06/2025 -- Present}
+\cvrow{Research Assistant}{Advisor: Hod Lipson}
+\cvbullet{Research focus: facial robot, human-robot-interaction, imitation learning.}
+
+\cvsection{Teaching Experience}
+\cvtitle{COMS W4167: Computer Animation}{Columbia University}
+\cvrow{Instructor: Changxi Zheng}{Spring 2026}
+\cventrygap
+\cvtitle{COMS W4733: Computational Aspects of Robotics}{Columbia University}
+\cvrow{Instructor: Yunzhu Li}{Fall 2025}
+
+\end{document}
